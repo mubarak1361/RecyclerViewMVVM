@@ -14,6 +14,7 @@ public class Post implements ViewModel {
     private Integer id;
     private String title;
     private String body;
+    private String imageUrl;
 
     public Integer getUserId() {
         return userId;
@@ -45,6 +46,14 @@ public class Post implements ViewModel {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
