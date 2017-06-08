@@ -9,7 +9,6 @@ import com.rnd.recyclerviewmvvm.ViewModel;
 
 public class Post implements ViewModel {
 
-
     private Integer userId;
     private Integer id;
     private String title;

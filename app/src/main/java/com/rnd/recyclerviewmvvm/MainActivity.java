@@ -45,24 +45,25 @@ public class MainActivity extends DataBindActivity<ActivityMainBinding> implemen
     }
 
     @Override
-    public void onItemClick(int position) {
-        Toast.makeText(this, "Item "+ position +" Clicked", Toast.LENGTH_SHORT).show();
+    public void onItemClick(View view,int position) {
+        switch (view.getId()){
+            case R.id.text_view_title:
+                Toast.makeText(context, postAppRecyclerViewAdapter.getItem(position).getTitle() +" Clicked", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.text_view_body:
+                Toast.makeText(context, postAppRecyclerViewAdapter.getItem(position).getBody() +" Clicked", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                Toast.makeText(this, "Item " + position + " Clicked", Toast.LENGTH_SHORT).show();
+                break;
+        }
+
     }
 
     @Override
-    public void onDataBind(ListItemPostBinding listItemPostBinding,final int position) {
-        listItemPostBinding.textViewTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, postAppRecyclerViewAdapter.getItem(position).getTitle() +" Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-        listItemPostBinding.textViewBody.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, postAppRecyclerViewAdapter.getItem(position).getBody() +" Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+    public void onDataBind(ListItemPostBinding listItemPostBinding, View.OnClickListener onClickListener) {
+        listItemPostBinding.textViewTitle.setOnClickListener(onClickListener);
+        listItemPostBinding.textViewBody.setOnClickListener(onClickListener);
     }
 
     @BindingAdapter("imageUrl")

@@ -68,7 +68,7 @@ public class AppRecyclerViewAdapter<T extends ViewModel> extends RecyclerView.Ad
             this.onDataBindListener = onDataBindListener;
 
             if(onDataBindListener!=null){
-                onDataBindListener.onDataBind(viewDataBinding,getAdapterPosition());
+                onDataBindListener.onDataBind(viewDataBinding,this);
             }
 
             viewDataBinding.getRoot().setOnClickListener(this);
@@ -77,7 +77,7 @@ public class AppRecyclerViewAdapter<T extends ViewModel> extends RecyclerView.Ad
         @Override
         public void onClick(View view) {
             if(onDataBindListener!=null){
-                onDataBindListener.onItemClick(getAdapterPosition());
+                onDataBindListener.onItemClick(view,getAdapterPosition());
             }
         }
     }
