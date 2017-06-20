@@ -16,6 +16,7 @@ import com.rnd.recyclerviewmvvm.databinding.ListItemPostBinding;
 import com.rnd.recyclerviewmvvm.controller.DataBindActivity;
 import com.rnd.recyclerviewmvvm.listener.OnDataBindListener;
 import com.rnd.recyclerviewmvvm.model.Post;
+import com.yuva.bindingdata.Fonts;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +67,7 @@ public class MainActivity extends DataBindActivity<ActivityMainBinding> implemen
         listItemPostBinding.textViewBody.setOnClickListener(onClickListener);
     }
 
-    @BindingAdapter("imageUrl")
+    /*@BindingAdapter("imageUrl")
     public static void setImageUrl(ImageView imageView, String url) {
         if (url == null) {
             imageView.setImageResource(R.drawable.ic_launcher);
@@ -76,9 +77,10 @@ public class MainActivity extends DataBindActivity<ActivityMainBinding> implemen
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imageView);
         }
-    }
+    }*/
 
     private void addData() {
+        Fonts.getInstance(this).addFont("avenir", "Avenir-Next-Regular.ttf");
         Post post = new Post();
         post.setTitle("New Ttile 1");
         post.setBody("New Body 1");
